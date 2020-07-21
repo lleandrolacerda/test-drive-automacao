@@ -1,0 +1,17 @@
+---
+- name: Gerencia o arquivo httpd.conf com base na versao
+  hosts: web
+  become: yes
+  tasks:
+  - name: Copiar arquivo de configuracao do apache
+    copy:
+     src: httpd.conf
+     dest: /etc/httpd/conf/
+    notify:
+     - restart_apache
+
+  handlers:
+  - name: restart_apache
+    service:
+     name: httpd
+     state: restarted
