@@ -1,0 +1,7 @@
+---
+- name: Saida ddos facts em um playbook
+  hosts: all
+  tasks:
+  - name: Imprime Ansible Facts do Playbook
+    debug:
+     msg: O endereco IPv4 padrao de {{ ansible_fqdn }} eh {{ ansible_default_ipv4.address }}

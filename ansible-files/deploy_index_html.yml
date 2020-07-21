@@ -1,0 +1,9 @@
+---
+- name: Copia o index.html para o Grupo web
+  hosts: web
+  become: yes
+  tasks:
+  - name: Copia o arquivo index.html
+    copy:
+     src: ~/ansible-files/{{ stage }}_index.html
+     dest: /var/www/html/index.html
